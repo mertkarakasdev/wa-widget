@@ -1,0 +1,27 @@
+{
+  "name": "wa-widget",
+  "version": "1.0.0",
+  "description": "Lightweight WhatsApp chat widget for any website. Zero dependencies, fully customizable.",
+  "main": "wa-widget.js",
+  "files": [
+    "wa-widget.js"
+  ],
+  "keywords": [
+    "whatsapp",
+    "chat",
+    "widget",
+    "whatsapp-widget",
+    "live-chat",
+    "floating-button"
+  ],
+  "author": "Mert Karakaş <https://karakas.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mertkarakasdev/wa-widget.git"
+  },
+  "homepage": "https://github.com/mertkarakasdev/wa-widget#readme",
+  "bugs": {
+    "url": "https://github.com/mertkarakasdev/wa-widget/issues"
+  }
+}
