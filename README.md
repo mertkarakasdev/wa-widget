@@ -1,47 +1,65 @@
 <div align="center">
 
-# WA Widget
-<img src="https://wa-widget.karakas.io/og-image.png" alt="WA Widget preview" width="600" />
+# WA Widget — Free WhatsApp Chat Widget for Any Website
 
-**Lightweight WhatsApp chat widget for any website.**  
-Drop in two script tags and you're live — zero dependencies, fully customizable.
+<img src="https://wa-widget.karakas.io/og-image.png" alt="WA Widget — WhatsApp chat widget preview" width="600" />
+
+**Add a WhatsApp chat button to any website in 2 lines of code.**  
+Free, open source, zero dependencies — works with HTML, React, Vue, Next.js, and more.
 
 <p>
-  <a href="https://cdn.jsdelivr.net/gh/mertkarakasdev/wa-widget@latest/wa-widget.js"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange" alt="jsDelivr" /></a>
+  <a href="https://wa-widget.karakas.io"><img src="https://img.shields.io/badge/demo-live-25D366?style=flat" alt="Live Demo" /></a>
+  <a href="https://cdn.jsdelivr.net/gh/mertkarakasdev/wa-widget@latest/wa-widget.js"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange" alt="jsDelivr CDN" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" /></a>
-  <img src="https://img.shields.io/badge/size-~8kb-brightgreen" alt="~8kb" />
+  <img src="https://img.shields.io/badge/size-~8kb-brightgreen" alt="~8kb gzipped" />
   <img src="https://img.shields.io/badge/dependencies-none-brightgreen" alt="zero dependencies" />
-  <img src="https://img.shields.io/badge/languages-10-blue" alt="10 languages" />
+  <img src="https://img.shields.io/badge/languages-10-blue" alt="10 built-in languages" />
 </p>
 
 </div>
 
-## About
+## What is WA Widget?
 
-WA Widget is a plug‑and‑play WhatsApp chat button for any website. It renders a floating action button that opens a chat panel — greeting message, quick‑reply options, emoji picker included. Works in plain HTML, React, Vue, Next.js, or any server‑side stack (PHP, Laravel, Django…). No build step required.
+WA Widget is a free, open source WhatsApp chat widget you can add to any website. It renders a floating WhatsApp button that opens a chat panel with a greeting message, quick-reply options, and an emoji picker — all configurable via a single JavaScript object.
 
-## Links
+Works with **plain HTML**, **React**, **Vue**, **Next.js**, **Angular**, **PHP**, **Laravel**, **Django**, and any other stack that renders a web page. No npm install, no build step, no account registration required.
 
-- [Demo][demo]
-- [CDN (jsDelivr)][cdn]
-- [GitHub][github]
+## Why WA Widget?
 
-## Quick Start
+- **Zero dependencies** — pure vanilla JS, ~8kb. No React, no jQuery, no bundler.
+- **Drop-in setup** — one config script + one script tag. Done.
+- **10 built-in languages** — EN, TR, DE, FR, ES, PT, RU, AR, ZH, JA. Auto-detects browser language.
+- **RTL support** — full right-to-left layout for Arabic, auto-detected.
+- **Fully customizable** — colors, agent name, logo, position, quick-reply options.
+- **Framework agnostic** — works anywhere a `<script>` tag runs.
+- **Free & open source** — MIT license. No watermarks, no paid plans, no limits.
+
+## Quick Start — Add WhatsApp Chat to Any Website
 
 Add before `</body>`:
 
 ```html
+<!-- 1. Configure -->
 <script>
   window.WAWidgetConfig = {
     phoneNumber: "+905551234567",
     language:    "auto",
     agentName:   "Customer Support",
+    accentColor: "#25D366",
+    position:    "right",
+    options: [
+      "📦 Track my order",
+      "💬 General inquiry",
+      "🔧 Technical support",
+    ],
   };
 </script>
+
+<!-- 2. Load the widget -->
 <script src="https://cdn.jsdelivr.net/gh/mertkarakasdev/wa-widget@latest/wa-widget.js"></script>
 ```
 
-Or self‑host — just copy `wa-widget.js` to your project:
+Or self-host — copy `wa-widget.js` to your project:
 
 ```html
 <script src="/wa-widget.js"></script>
@@ -49,7 +67,7 @@ Or self‑host — just copy `wa-widget.js` to your project:
 
 ## Framework Examples
 
-### React
+### Add WhatsApp to a React App
 
 ```jsx
 import { useEffect } from "react";
@@ -57,18 +75,11 @@ import { useEffect } from "react";
 export default function App() {
   useEffect(() => {
     window.WAWidgetConfig = {
-      phoneNumber:    "+905551234567",
-      language:       "auto",
-      agentName:      "Customer Support",
-      agentSubtitle:  null,
-      greeting:       null,
-      options:        null,
-      accentColor:    "#25D366",
-      headerColor:    "#25D366",
-      logoInitials:   "CS",
-      logo:           null,
-      position:       "right",
-      bubbleSize:     60,
+      phoneNumber:  "+905551234567",
+      language:     "auto",
+      agentName:    "Customer Support",
+      accentColor:  "#25D366",
+      position:     "right",
     };
     const script = document.createElement("script");
     script.src = "/wa-widget.js";
@@ -80,25 +91,20 @@ export default function App() {
 }
 ```
 
-### Vue
+→ [Full React guide](https://wa-widget.karakas.io/react)
+
+### Add WhatsApp to a Vue App
 
 ```js
 import { onMounted } from "vue";
 
 onMounted(() => {
   window.WAWidgetConfig = {
-    phoneNumber:    "+905551234567",
-    language:       "auto",
-    agentName:      "Customer Support",
-    agentSubtitle:  null,
-    greeting:       null,
-    options:        null,
-    accentColor:    "#25D366",
-    headerColor:    "#25D366",
-    logoInitials:   "CS",
-    logo:           null,
-    position:       "right",
-    bubbleSize:     60,
+    phoneNumber:  "+905551234567",
+    language:     "auto",
+    agentName:    "Customer Support",
+    accentColor:  "#25D366",
+    position:     "right",
   };
   const script = document.createElement("script");
   script.src = "/wa-widget.js";
@@ -106,7 +112,9 @@ onMounted(() => {
 });
 ```
 
-### Next.js
+→ [Full Vue guide](https://wa-widget.karakas.io/vue)
+
+### Add WhatsApp to a Next.js App
 
 ```jsx
 import Script from "next/script";
@@ -118,18 +126,11 @@ export default function RootLayout({ children }) {
         {children}
         <Script id="wa-config" strategy="beforeInteractive">{`
           window.WAWidgetConfig = {
-            phoneNumber:    "+905551234567",
-            language:       "auto",
-            agentName:      "Customer Support",
-            agentSubtitle:  null,
-            greeting:       null,
-            options:        null,
-            accentColor:    "#25D366",
-            headerColor:    "#25D366",
-            logoInitials:   "CS",
-            logo:           null,
-            position:       "right",
-            bubbleSize:     60,
+            phoneNumber:  "+905551234567",
+            language:     "auto",
+            agentName:    "Customer Support",
+            accentColor:  "#25D366",
+            position:     "right",
           }
         `}</Script>
         <Script src="/wa-widget.js" strategy="afterInteractive" />
@@ -139,6 +140,8 @@ export default function RootLayout({ children }) {
 }
 ```
 
+→ [Full Next.js guide](https://wa-widget.karakas.io/nextjs)
+
 ## Configuration
 
 All options are optional except `phoneNumber`.
@@ -146,19 +149,19 @@ All options are optional except `phoneNumber`.
 | Option | Type | Default | Description |
 |---|---|---|---|
 | `phoneNumber` | `string` | `""` | WhatsApp number with country code (`"+905551234567"`) |
-| `language` | `string` | `"auto"` | `"auto"` or a language code: `en` `tr` `de` `fr` `es` `pt` `ru` `ar` `zh` `ja` |
-| `agentName` | `string` | `"Customer Support"` | Display name shown in the header |
+| `language` | `string` | `"auto"` | `"auto"` or a code: `en` `tr` `de` `fr` `es` `pt` `ru` `ar` `zh` `ja` |
+| `agentName` | `string` | `"Customer Support"` | Display name shown in the chat header |
 | `agentSubtitle` | `string\|null` | `null` | Subtitle text — `null` uses the language default |
-| `greeting` | `string\|null` | `null` | Greeting message, use `\n` for line breaks — `null` uses the language default |
+| `greeting` | `string\|null` | `null` | Greeting message, `\n` for line breaks — `null` uses language default |
 | `logo` | `string\|null` | `null` | Avatar image URL — `null` shows initials |
 | `logoInitials` | `string` | `"CS"` | Initials shown when no logo is set |
 | `accentColor` | `string` | `"#25D366"` | Color for buttons and borders |
 | `headerColor` | `string` | `"#25D366"` | Header background color |
-| `options` | `string[]\|null` | `null` | Quick‑reply buttons — `null` = language defaults, `[]` = hide |
+| `options` | `string[]\|null` | `null` | Quick-reply buttons — `null` = language defaults, `[]` = hide |
 | `position` | `string` | `"right"` | `"right"` or `"left"` |
 | `bubbleSize` | `number` | `60` | Floating button size in px |
 
-## Languages
+## Supported Languages
 
 | Code | Language | RTL |
 |---|---|---|
@@ -173,13 +176,19 @@ All options are optional except `phoneNumber`.
 | `zh` | 中文 | — |
 | `ja` | 日本語 | — |
 
+## Links
+
+- [Live Demo](https://wa-widget.karakas.io)
+- [How to add WhatsApp to any website](https://wa-widget.karakas.io/blog/how-to-add-whatsapp-to-website)
+- [CDN (jsDelivr)](https://cdn.jsdelivr.net/gh/mertkarakasdev/wa-widget@latest/wa-widget.js)
+
 ## Contributing
 
-Pull requests are welcome. For significant changes please open an issue first to discuss what you'd like to change.
+Pull requests are welcome. For significant changes please open an issue first.
 
 ## Author
 
-Built by [Mert Karakaş][author] — [karakas.io][website]
+Built by [Mert Karakaş](https://karakas.io)
 
 ## Disclaimer
 
@@ -187,11 +196,4 @@ This project is not affiliated with, authorized by, or in any way officially con
 
 ## License
 
-MIT — free for personal and commercial use. See [LICENSE][license] for details.
-
-[demo]: https://mertkarakasdev.github.io/wa-widget/
-[cdn]: https://cdn.jsdelivr.net/gh/mertkarakasdev/wa-widget@latest/wa-widget.js
-[github]: https://github.com/mertkarakasdev/wa-widget
-[license]: LICENSE
-[author]: https://github.com/mertkarakasdev
-[website]: https://karakas.io
+MIT — free for personal and commercial use. See [LICENSE](LICENSE) for details.
