@@ -46,7 +46,7 @@
     { label: "OBJECTS", emojis: ["📦","📧","📞","📱","💻","🖥️","🖨️","⌨️","🖱️","🔧","🔨","🛠️","⚙️","🔑","🔒","🔓","💬","📝","📋","📌","📍","🗂️","📁","📂","🗒️","📅","⏰","🕐","💰","💳","🛒","🚀"] },
   ];
 
-  var WA_BG = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg opacity='0.06'%3E%3Cpath fill='%23a0a0a0' d='M30 10c-11 0-20 9-20 20s9 20 20 20 20-9 20-20S41 10 30 10zm8.5 27.5c-.3.4-.9.6-1.4.3-3.8-2.3-8.6-2.9-14.3-1.6-.5.1-1-.2-1.1-.7-.1-.5.2-1 .7-1.1 6.2-1.4 11.5-.8 15.8 1.8.5.3.6.8.3 1.3zm2.3-5c-.4.5-1.1.7-1.6.3-4.4-2.7-11-3.5-16.2-1.9-.6.2-1.3-.1-1.5-.7-.2-.6.1-1.3.7-1.5 5.9-1.8 13.2-1 18.3 2.2.5.4.7 1.1.3 1.6zm.2-5.2c-5.3-3.1-14-3.4-19.1-1.9-.7.2-1.5-.2-1.7-.9-.2-.7.2-1.5.9-1.7 5.8-1.8 15.4-1.4 21.4 2.1.7.4.9 1.3.5 1.9-.4.7-1.3.9-2 .5z'/%3E%3C/g%3E%3C/svg%3E\")";
+  var WA_BG = "url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')";
 
   function detectLang() {
     var l = (navigator.language || "en").toLowerCase().split("-")[0];
@@ -172,7 +172,9 @@
     body.style.cssText = s({
       background: "#ece5dd",
       backgroundImage: WA_BG,
-      backgroundSize: "60px 60px",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
       minHeight: "320px", maxHeight: "400px",
       overflowY: "auto",
       padding: "20px 14px 12px",
@@ -199,7 +201,7 @@
 
     // Notification badge
     var notif = document.createElement("div");
-    notif.style.cssText = s({ position: "absolute", top: "-8px", right: "-4px", background: "#ff3b30", color: "white", fontSize: "11px", fontWeight: "700", width: "20px", height: "20px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.25)", animation: "waw-pulse 2s ease-in-out infinite", zIndex: "10" });
+    notif.style.cssText = s({ position: "absolute", top: "-8px", right: "-4px", background: "#ff3b30", color: "white", fontSize: "11px", fontWeight: "700", fontFamily: font, width: "20px", height: "20px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.25)", animation: "waw-pulse 2s ease-in-out infinite", zIndex: "10" });
     notif.textContent = "1";
     fab.appendChild(notif);
 
@@ -299,7 +301,18 @@
         btn.addEventListener("mouseleave", function () { btn.style.background = "white"; });
         btn.addEventListener("click", function () {
           var clean = opt.replace(/^[\u{1F300}-\u{1FAFF}\s]+/u, "").trim() || opt;
-          openWA(clean);
+          input.value = "";
+          input.focus();
+          var i = 0;
+          var delay = Math.min(38, Math.floor(600 / clean.length));
+          function typeNext() {
+            if (i < clean.length) {
+              input.value += clean[i++];
+              updateSendBtn(true);
+              setTimeout(typeNext, delay);
+            }
+          }
+          typeNext();
         });
         wrap.appendChild(btn);
       });

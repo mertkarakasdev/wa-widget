@@ -2,10 +2,13 @@
   "name": "wa-widget",
   "version": "1.0.0",
   "description": "Lightweight WhatsApp chat widget for any website. Zero dependencies, fully customizable.",
-  "main": "wa-widget.js",
+  "main": "dist/wa-widget.js",
   "files": [
-    "wa-widget.js"
+    "dist/wa-widget.js"
   ],
+  "scripts": {
+    "build": "esbuild src/wa-widget.js --minify --outfile=dist/wa-widget.js"
+  },
   "keywords": [
     "whatsapp",
     "chat",
@@ -23,5 +26,8 @@
   "homepage": "https://github.com/mertkarakasdev/wa-widget#readme",
   "bugs": {
     "url": "https://github.com/mertkarakasdev/wa-widget/issues"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
   }
 }
