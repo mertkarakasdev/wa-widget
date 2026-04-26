@@ -13,6 +13,8 @@ Drop in two script tags and you're live — zero dependencies, fully customizabl
   <img src="https://img.shields.io/badge/languages-10-blue" alt="10 languages" />
 </p>
 
+<img src="https://wa-widget.karakas.io/og-image.png" alt="WA Widget preview" width="600" />
+
 </div>
 
 ## About
